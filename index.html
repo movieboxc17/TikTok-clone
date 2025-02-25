@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Top Navigation -->
         <div class="top-nav">
             <div class="tabs">
                 <button class="tab" data-tab="following">Following</button>
@@ -16,16 +17,60 @@
             </div>
         </div>
 
-        <main class="video-feed" id="videoFeed"></main>
+        <!-- Main Video Feed -->
+        <main class="video-feed" id="videoFeed">
+            <!-- Video Container Template -->
+            <div class="video-container">
+                <video src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4" loop></video>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="volume-control">
+                    <input type="range" class="volume-slider" min="0" max="100" value="100">
+                </div>
+                <div class="interaction-buttons">
+                    <div class="profile-pic"></div>
+                    <button class="interaction-button like">
+                        <i class="fas fa-heart interaction-icon"></i>
+                        <span class="count">88.5K</span>
+                    </button>
+                    <button class="interaction-button comment">
+                        <i class="fas fa-comment-dots interaction-icon"></i>
+                        <span class="count">1024</span>
+                    </button>
+                    <button class="interaction-button bookmark">
+                        <i class="fas fa-bookmark interaction-icon"></i>
+                        <span class="count">2.1K</span>
+                    </button>
+                    <button class="interaction-button share">
+                        <i class="fas fa-share interaction-icon"></i>
+                        <span class="count">1.8K</span>
+                    </button>
+                    <div class="music-disc"></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="username">@tiktokstar <i class="fas fa-check-circle verified"></i></h3>
+                    <p class="description">Living my best life! 🎉 #trending #viral #fyp</p>
+                    <div class="sound-info">
+                        <i class="fas fa-music"></i>
+                        Original Sound - TikTok Star
+                    </div>
+                </div>
+            </div>
+        </main>
 
+        <!-- Share Menu -->
         <div class="share-menu">
             <div class="share-header">
                 <h3>Share to</h3>
                 <button class="close-share"><i class="fas fa-times"></i></button>
             </div>
-            <div class="share-grid"></div>
+            <div class="share-grid">
+                <!-- Share options will be dynamically added by JavaScript -->
+            </div>
         </div>
 
+        <!-- Bottom Navigation -->
         <nav class="bottom-nav">
             <button class="nav-item active" data-page="home">
                 <i class="fas fa-home nav-icon"></i>
@@ -49,6 +94,8 @@
             </button>
         </nav>
     </div>
+
+    <!-- Scripts -->
     <script src="config.js"></script>
     <script src="videoManager.js"></script>
     <script src="interactions.js"></script>
