@@ -1,3 +1,4 @@
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@
     --overlay-color: rgba(0, 0, 0, 0.7);
 }
 
+/* App Container */
 .app-container {
     width: 100%;
     height: 100vh;
@@ -139,6 +141,7 @@ video {
 }
 
 .interaction-button {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,21 +149,37 @@ video {
     border: none;
     color: white;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+}
+
+.interaction-button:hover {
+    transform: scale(1.1);
 }
 
 .interaction-button:active {
     transform: scale(0.95);
 }
 
+.interaction-button.liked .interaction-icon {
+    color: var(--primary-color);
+    animation: likeAnimation 0.5s ease;
+}
+
+.interaction-button.favorited .interaction-icon {
+    color: #ffeb3b;
+    animation: favoriteAnimation 0.5s ease;
+}
+
 .interaction-icon {
     font-size: 28px;
     margin-bottom: 5px;
+    transition: all 0.3s ease;
 }
 
 .count {
     font-size: 12px;
     opacity: 0.9;
+    transition: all 0.3s ease;
 }
 
 .music-disc {
@@ -174,9 +193,26 @@ video {
     border: 2px solid #fff;
 }
 
+/* Animations */
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes likeAnimation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+@keyframes favoriteAnimation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3) rotate(20deg); }
+}
+
+@keyframes heartPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
 }
 
 /* Video Info */
@@ -236,9 +272,19 @@ video {
     animation: slideUp 0.3s ease-out;
 }
 
-@keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+.share-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-share {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .share-grid {
@@ -246,7 +292,6 @@ video {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     text-align: center;
-    margin-top: 20px;
 }
 
 .share-item {
@@ -299,7 +344,7 @@ video {
     gap: 5px;
     font-size: 12px;
     opacity: 0.7;
-    transition: opacity 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-icon {
@@ -333,27 +378,11 @@ video {
 }
 
 /* Heart Animation */
-@keyframes heartPop {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
-
 .heart-animation {
-    position: fixed;
+    position: absolute;
     color: var(--primary-color);
-    font-size: 100px;
+    font-size: 50px;
     pointer-events: none;
-    z-index: 1000;
     animation: heartPop 1s ease-out forwards;
 }
 
@@ -390,38 +419,3 @@ video {
         border-right: 1px solid #333;
     }
 }
-/* Add these to your existing CSS */
-.interaction-button.liked .interaction-icon,
-.interaction-button.favorited .interaction-icon {
-    transform: scale(1);
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.heart-animation {
-    position: absolute;
-    color: #fe2c55;
-    font-size: 50px;
-    pointer-events: none;
-    animation: heartPop 1s ease-out forwards;
-}
-
-@keyframes heartPop {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
-
-.interaction-button {
-    position: relative;
-    transition: transform 0.2s ease;
-}
-
