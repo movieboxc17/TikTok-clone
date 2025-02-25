@@ -390,3 +390,38 @@ video {
         border-right: 1px solid #333;
     }
 }
+/* Add these to your existing CSS */
+.interaction-button.liked .interaction-icon,
+.interaction-button.favorited .interaction-icon {
+    transform: scale(1);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.heart-animation {
+    position: absolute;
+    color: #fe2c55;
+    font-size: 50px;
+    pointer-events: none;
+    animation: heartPop 1s ease-out forwards;
+}
+
+@keyframes heartPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.interaction-button {
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
